@@ -1,0 +1,21 @@
+[
+	{ "keys": ["super+shift+f"], "command": "reindent" } ,
+  { "keys": ["super+shift+i"], "command": "insert_snippet", "args": {"contents": "import React from 'react';"}} ,
+  { "keys": ["super+shift+r"], "command": "insert_snippet", "args": {"contents": "import ReactDOM from 'react-dom';"}} ,
+  {
+    "keys": ["tab"],
+    "command": "chain", 
+    "args": {
+      "commands": [
+        ["expand_abbreviation_by_tab"]
+
+      ]
+    },
+    "context": [
+      {"operand": "source.js", "operator": "equal", "match_all": true, "key": "selector"}, 
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "(\\w+>\\w+|\\s(\\.?|a|div|span|p|button)\\.\\w+)", "match_all": true},
+      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+    ]
+
+  }
+]
